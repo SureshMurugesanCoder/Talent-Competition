@@ -1,0 +1,12 @@
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\bin\Release\netcoreapp2.0\Talent.App.WebApp.deps.json
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\bin\Release\netcoreapp2.0\Talent.App.WebApp.runtimeconfig.json
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\bin\Release\netcoreapp2.0\Talent.App.WebApp.runtimeconfig.dev.json
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\bin\Release\netcoreapp2.0\Talent.App.WebApp.dll
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\bin\Release\netcoreapp2.0\Talent.App.WebApp.pdb
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.csprojAssemblyReference.cache
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.csproj.CoreCompileInputs.cache
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.AssemblyInfoInputs.cache
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.AssemblyInfo.cs
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.dll
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\Talent.App.WebApp.pdb
+C:\Users\kumar\source\repos\talent-competition\App\Talent.App.WebApp\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs

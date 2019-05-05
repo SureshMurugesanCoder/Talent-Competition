@@ -1,0 +1,164 @@
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+import Cookies from 'js-cookie';
+import LoggedInBanner from '../../Layout/Banner/LoggedInBanner.jsx';
+import { LoggedInNavigation } from '../../Layout/LoggedInNavigation.jsx';
+import { JobSummaryCard } from './JobSummaryCard.jsx';
+import { BodyWrapper, loaderData } from '../../Layout/BodyWrapper.jsx';
+import { Pagination, Icon, Dropdown, Header, Checkbox, Accordion, Form, Segment } from 'semantic-ui-react';
+import { Button, Card, Label } from 'semantic-ui-react'
+
+export default class ManageJob extends React.Component {
+    constructor(props) {
+        super(props);
+        let loader = loaderData
+        loader.allowedUsers.push("Employer");
+        loader.allowedUsers.push("Recruiter");
+        //console.log(loader)
+        this.state = {
+            loadJobs: [],
+            loaderData: loader,
+            activePage: 1,
+            sortBy: {
+                date: "desc"
+            },
+            filter: {
+                showActive: true,
+                showClosed: false,
+                showDraft: true,
+                showExpired: true,
+                showUnexpired: true
+            },
+            totalPages: 1,
+            activeIndex: ""
+        }
+        this.loadData = this.loadData.bind(this);
+        this.init = this.init.bind(this);
+        this.loadNewData = this.loadNewData.bind(this);
+        //your functions go here
+    };
+
+    init() {
+        let loaderData = TalentUtil.deepCopy(this.state.loaderData)
+        loaderData.isLoading = false;
+        this.setState({ loaderData });//comment this
+        this.loadData();
+        //set loaderData.isLoading to false after getting data
+        //this.loadData(() =>
+        //    this.setState({ loaderData })
+        //)
+        
+        //console.log(this.state.loaderData)
+    }
+
+    componentDidMount() {
+        this.init();
+    };
+
+    loadData(callback) {
+        var link = 'http://localhost:51689/listing/listing/getSortedEmployerJobs';
+        var cookies = Cookies.get('talentAuthToken');
+       // your ajax call and other logic goes here
+        $.ajax({
+            url: link,
+            headers: {
+                'Authorization': 'Bearer ' + cookies,
+                'Content-Type': 'application/json'
+            },
+            type: 'GET',
+            data: {
+                activePage: this.activePage,
+                sortbyDate: this.sortbyDate,
+                showActive: this.showActive,
+                showClosed: this.showClosed,
+                showDraft: this.showDraft,
+                showExpired: this.showExpired,
+                showUnexpired: this.showUnexpired
+            },
+            dataType: 'json',
+            success: function (res) {
+                if (res.myJobs) {
+                    console.log("res" + res.myJobs);
+                }
+            }.bind(this)
+        })
+        debugger
+    }
+
+    displaymsg() {
+        alert("Expired");
+    }
+
+    loadNewData(data) {
+        var loader = this.state.loaderData;
+        loader.isLoading = true;
+        data[loaderData] = loader;
+        this.setState(data, () => {
+            this.loadData(() => {
+                loader.isLoading = false;
+                this.setState({
+                    loadData: loader
+                })
+            })
+        });
+    }
+
+    render() {
+        return (
+            <BodyWrapper reload={this.init} loaderData={this.state.loaderData}>
+                <div className="ui container">
+                    
+                    <h3> List of Jobs </h3>
+                    <Header as='h4'>
+                        <Icon name='filter' />
+                        <Header.Content>
+                            Filter: Choose filter{' '}
+                            <Dropdown
+                                inline
+                                
+                            />
+                            <Icon name='calendar alternate outline' />
+                            <Dropdown
+                                inline
+                                text='Sort By Date'
+                            />
+                        </Header.Content>
+                    </Header>
+                    <br /><br />
+                    
+                    <Card.Group>
+                        <Card>
+                            <Card.Content>
+                                <Card.Header>Job Title</Card.Header>
+                                <Label color='black' ribbon='right'>
+                                    <Icon name='user outline' />
+                                    View
+                                </Label>
+                                <Card.Meta>Location</Card.Meta>
+                                <Card.Description>
+                                    Description for the role <strong>Job Title</strong>
+                                    <br /><br />
+                                    <br /><br />
+                                </Card.Description>
+                            </Card.Content>
+                            
+                            <Card.Content extra>
+                                <button type="button" className="ui red button" onClick={this.displaymsg}>Expired</button>
+                                <div className='ui three buttons'>
+                                    <Button basic color='blue'>Close</Button>
+                                    <Button basic color='blue'>Edit</Button>
+                                    <Button basic color='blue'>Copy</Button>
+                                </div>
+                            </Card.Content>
+                        </Card>
+                        
+                    </Card.Group>
+                    <br /><br />
+                    <br /><br />
+                    <Pagination defaultActivePage={1} totalPages={1} />
+                </div>
+                
+            </BodyWrapper>
+        )
+    }
+}

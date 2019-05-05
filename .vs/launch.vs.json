@@ -1,0 +1,21 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "mixed",
+      "name": "Talent.Services.Identity",
+      "project": "Talent.Services.Identity"
+    },
+    {
+      "type": "nodeDbg",
+      "name": "Talent.Services.Listing",
+      "project": "Talent.Services.Listing"
+    },
+    {
+      "type": "default",
+      "project": "Talent.Services.Listing",
+      "name": "Talent.Services.Listing(1)"
+    }
+  ]
+}

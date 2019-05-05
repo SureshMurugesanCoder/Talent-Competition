@@ -60,7 +60,8 @@ namespace Talent.Services.Listing.Controllers
                     jobData.Status = JobStatus.Active;
                     jobData.CreatedOn = DateTime.UtcNow;
                     string newJobID = _jobService.CreateJob(jobData);
-                    message = "Job added successfully with id " + newJobID;
+                    //message = "Job added successfully with id " + newJobID;
+                    message = "Job added successfully with Jobid " + newJobID + " EID" + jobData.EmployerID;
                 }
                 else
                 {

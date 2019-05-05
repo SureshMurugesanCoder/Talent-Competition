@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\App",
+    "\\App\\Talent.App.WebApp\\bin",
+    "\\Talent.Common",
+    "\\Talent.Common\\obj\\Debug",
+    "\\Talent.Common\\obj\\Debug\\netcoreapp2.0",
+    "\\Talent.Common\\obj\\MCD",
+    "\\Talent.Common\\obj\\MCD\\Debug",
+    "\\Talent.Common\\obj\\MCD\\Debug\\netcoreapp2.0",
+    "\\Talent.Common\\obj\\MCD\\Release"
+  ],
+  "SelectedNode": "\\App\\Talent.App.WebApp",
+  "PreviewInSolutionExplorer": false
+}
